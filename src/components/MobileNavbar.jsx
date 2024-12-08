@@ -30,7 +30,7 @@ function MobileNavbar() {
   ];
 
   return (
-    <div className="relative md:hidden"> {/* Ensures it's hidden on larger screens */}
+    <div className="relative md:hidden">
       {/* Menu Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -42,9 +42,7 @@ function MobileNavbar() {
 
       {/* Full-Screen Dropdown Menu */}
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         style={{
           backgroundColor: colorPalette.darkLightBlue,
           filter: 'brightness(90%)'
@@ -56,7 +54,7 @@ function MobileNavbar() {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`block px-4 py-2 rounded-md transition-colors duration-200 text-center ${
+                  className={`block px-6 py-3 rounded-md transition-colors duration-200 text-center ${
                     isActive(link.path)
                       ? 'bg-[#00ABE4] text-white'
                       : 'text-gray-800 hover:bg-[#2f6690] hover:text-white'
@@ -69,10 +67,10 @@ function MobileNavbar() {
             ))}
           </ul>
           
-          {/* Cancel Button as the last option */}
+          {/* Cancel Button */}
           <button
             onClick={() => setIsOpen(false)}
-            className="mt-4 px-4 py-2 rounded-md bg-[#2f6690] text-white"
+            className="mt-4 px-6 py-3 rounded-md bg-[#2f6690] text-white"
             aria-label="Cancel"
           >
             Cancel
