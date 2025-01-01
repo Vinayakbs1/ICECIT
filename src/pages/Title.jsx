@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const colorPalette = {
   primary: '#2f6690',
   secondary: '#3a7ca5',
-  accent1: '#E9F1FA', // Background color
+  accent1: '#E9F1FA',
   accent2: '#16425b',
   accent3: '#81c3d7',
   lightBlue: '#E9F1FA',
   brightBlue: '#00ABE4',
-  white: '#FFFFFF'
+  white: '#FFFFFF',
 };
 
 function Title() {
@@ -19,21 +19,21 @@ function Title() {
       className="w-full"
       style={{
         backgroundColor: colorPalette.accent1,
-        padding: '1.5rem',
+        padding: '1.2rem',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
       }}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
         {/* Logo Section */}
         <Link
-          to="/" // This is the homepage link
+          to="/"
           className="flex-shrink-0 transform hover:scale-105 transition-transform duration-300"
         >
           <img
             src="http://icsses.sit.ac.in/assets/sit-removebg-preview-Dgeiue2e.png"
             alt="SIT Logo"
-            className="h-24 w-auto" // Increased height from h-20 to h-24
-            style={{ minWidth: '100px' }} // Ensures minimum width for responsiveness
+            className="h-16 sm:h-20 w-auto"
+            style={{ minWidth: '80px' }}
           />
         </Link>
 
@@ -42,14 +42,14 @@ function Title() {
           className="text-center flex-grow px-4"
           style={{
             color: colorPalette.primary,
-            minWidth: '200px', // Ensures adequate space for wrapping text
+            minWidth: '160px',
           }}
         >
           <h1
-            className="text-xl md:text-3xl font-bold tracking-tight uppercase"
+            className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight uppercase"
             style={{
-              whiteSpace: 'normal', // Allows text wrapping
-              wordBreak: 'break-word', // Handles long words properly
+              whiteSpace: 'normal',
+              wordBreak: 'break-word',
             }}
           >
             Siddaganga Institute of Technology, Tumakuru

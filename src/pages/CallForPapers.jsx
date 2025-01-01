@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+<<<<<<< HEAD
 import TrackModal from '../components/TrackModal';
+=======
+>>>>>>> 6dcc9e7d68acd484d919d660f9fd180f69769ebf
 import { 
   NetworkIcon, 
   PaperclipIcon, 
@@ -23,6 +26,7 @@ const colorPalette = {
 };
 
 const CallForPapers = () => {
+<<<<<<< HEAD
   const [selectedTrack, setSelectedTrack] = useState(null);
 
   const tracks = [
@@ -32,6 +36,21 @@ const CallForPapers = () => {
     { title: "Track 4: IoT", topics: ["IoT Architecture and Protocols", "Smart Home and Smart City Applications", "Industrial IoT and Automation", "Wearable Devices and Healthcare IoT", "IoT Security and Privacy", "IoT in Agriculture", "Energy-Efficient IoT Systems"] },
     { title: "Track 5: Networks", topics: ["Next-Generation Network Technologies", "5G and Beyond", "Software-Defined Networking", "Network Virtualization", "Wireless and Ad Hoc Networks", "Optical Communication Networks", "Network Traffic Analysis and Optimization"] },
     { title: "Track 6: Security", topics: ["Cybersecurity Threats and Solutions", "Blockchain and Cryptography", "Secure Systems Design", "Network Security Protocols", "Data Privacy and Protection", "AI in Cybersecurity", "Ethical Hacking and Penetration Testing"] },
+=======
+  const [activeTrack, setActiveTrack] = useState(null);
+
+  const trackDetails = [
+    "Wireless Communication",
+    "AI and ML applications",
+    "Secure Communication",
+    "Signal Processing",
+    "IoT/Industry 4.0",
+    "Autonomous Vehicles",
+    "Power Systems, Control and Electric Vehicles",
+    "Smart Sensors and Process Automation",
+    "VLSI Design",
+    "Materials"
+>>>>>>> 6dcc9e7d68acd484d919d660f9fd180f69769ebf
   ];
 
   const trackIcons = [
@@ -49,11 +68,14 @@ const CallForPapers = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 py-16 relative overflow-hidden">
+<<<<<<< HEAD
       <TrackModal
         isOpen={selectedTrack !== null}
         onClose={() => setSelectedTrack(null)}
         track={selectedTrack || tracks[0]}
       />
+=======
+>>>>>>> 6dcc9e7d68acd484d919d660f9fd180f69769ebf
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         {/* Conference Introduction */}
         <motion.div 
@@ -122,10 +144,17 @@ const CallForPapers = () => {
             Track Details
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
+<<<<<<< HEAD
             {tracks.map((track, index) => (
               <motion.div 
                 key={index}
                 className="p-4 rounded-lg text-lg font-semibold text-center transform transition duration-300 flex items-center justify-center space-x-3 border cursor-pointer"
+=======
+            {trackDetails.map((track, index) => (
+              <motion.div 
+                key={index}
+                className="p-4 rounded-lg text-lg font-semibold text-center transform transition duration-300 flex items-center justify-center space-x-3 border"
+>>>>>>> 6dcc9e7d68acd484d919d660f9fd180f69769ebf
                 style={{ 
                   color: colorPalette.accent2,
                   borderColor: colorPalette.secondary
@@ -135,6 +164,7 @@ const CallForPapers = () => {
                   color: colorPalette.white,
                   scale: 1.05
                 }}
+<<<<<<< HEAD
                 onClick={() => setSelectedTrack(track)}
               >
                 {React.createElement(trackIcons[index % trackIcons.length], { 
@@ -142,6 +172,14 @@ const CallForPapers = () => {
                   style: { color: colorPalette.primary }
                 })}
                 {track.title}
+=======
+              >
+                {React.createElement(trackIcons[index], { 
+                  className: "w-6 h-6 mr-2 inline-block",
+                  style: { color: colorPalette.primary }
+                })}
+                {track}
+>>>>>>> 6dcc9e7d68acd484d919d660f9fd180f69769ebf
               </motion.div>
             ))}
           </div>
