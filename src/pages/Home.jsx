@@ -48,7 +48,69 @@ const styles = `
 .track-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(21, 158, 149, 0.2);
-}`;
+}
+
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 95, 122, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(26, 95, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 95, 122, 0);
+  }
+}
+
+.timeline-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #1A5F7A, #159895);
+  top: 50%;
+  transition: all 0.3s ease;
+}
+
+.timeline-card-left::before {
+  right: -30px;
+}
+
+.timeline-card-right::before {
+  left: -30px;
+}
+
+.timeline-card:hover::before {
+  width: 30px;
+}
+
+.timeline-icon {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.timeline-card:hover .timeline-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+`;
 
 function Home() {
   const tracks = [
@@ -68,12 +130,12 @@ function Home() {
         <div className="text-center mb-12 gradient-border rounded-lg p-8 shadow-2xl" style={{ backgroundColor: colorPalette.white }}>
           <div className="flex items-center justify-center space-x-4 mb-6">
             <img 
-              src="http://icsses.sit.ac.in/assets/sit-removebg-preview-Dgeiue2e.png" 
+              src="/images/logo.png"
               alt="SIT Logo" 
               className="w-36 md:w-48 h-36 md:h-48 object-contain" 
             />
             <img 
-              src="http://icsses.sit.ac.in/assets/Shivakumara-Swamy-Tribute-removebg-preview-C-BpCzdX.png" 
+              src="/images/swamiji.jpg"
               alt="SIT Tribute" 
               className="w-36 md:w-48 h-36 md:h-48 object-contain" 
             />
@@ -143,6 +205,94 @@ function Home() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Important Dates Section with Enhanced Roadmap Style */}
+        <div className="mb-12 mt-16 py-16" style={{ background: 'linear-gradient(135deg, #f0f9ff 0%, #e6f2ff 100%)' }}>
+          <h2 className="text-4xl font-bold mb-16 text-center" style={{ color: colorPalette.primary }}>
+            Conference Timeline
+          </h2>
+          <div className="max-w-6xl mx-auto relative px-4">
+            {/* Timeline Line */}
+            <div 
+              className="absolute left-1/2 transform -translate-x-1/2 h-full w-2 rounded-full"
+              style={{ 
+                background: `linear-gradient(to bottom, ${colorPalette.primary}, ${colorPalette.secondary})`,
+                top: '20px',
+                boxShadow: '0 0 20px rgba(21, 152, 149, 0.3)'
+              }}
+            />
+
+            {/* Timeline Items */}
+            <div className="space-y-24">
+              {[
+                {
+                  title: "Submission Portal Opens",
+                  date: "1st October 2025",
+                  icon: "📝",
+                  description: "Start submitting your research papers"
+                },
+                {
+                  title: "Full Paper Submission Deadline",
+                  date: "20th January 2026",
+                  icon: "📄",
+                  description: "Last date to submit your complete paper"
+                },
+                {
+                  title: "Acceptance/Rejection Notification",
+                  date: "18th February 2026",
+                  icon: "✉️",
+                  description: "Results will be announced"
+                },
+                {
+                  title: "Camera Ready Paper Submission",
+                  date: "22nd February 2026",
+                  icon: "📎",
+                  description: "Submit your final camera-ready paper"
+                },
+                {
+                  title: "Registration Deadline",
+                  date: "26th February 2026",
+                  icon: "💳",
+                  description: "Complete your registration and payment"
+                },
+                {
+                  title: "Conference Days",
+                  date: "7th & 8th March 2026",
+                  icon: "🎓",
+                  description: "Join us for the main conference"
+                }
+              ].map((item, index) => (
+                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  {/* Content */}
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+                    <div 
+                      className={`timeline-card ${index % 2 === 0 ? 'timeline-card-left' : 'timeline-card-right'} 
+                        bg-white p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105`}
+                      style={{ 
+                        borderTop: `4px solid ${colorPalette.secondary}`,
+                        background: 'rgba(255, 255, 255, 0.95)'
+                      }}
+                    >
+                      <div className="timeline-icon text-5xl mb-4">{item.icon}</div>
+                      <h3 className="text-xl font-bold mb-2" style={{ color: colorPalette.primary }}>{item.title}</h3>
+                      <p className="text-lg font-semibold mb-2" style={{ color: colorPalette.secondary }}>{item.date}</p>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Timeline Dot */}
+                  <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white shadow-lg" style={{ 
+                    border: `3px solid ${colorPalette.secondary}`,
+                    zIndex: 1
+                  }} />
+
+                  {/* Empty space for the other side */}
+                  <div className="w-5/12" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

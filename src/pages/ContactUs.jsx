@@ -15,20 +15,20 @@ const colorPalette = {
 function ContactUs() {
   const contacts = [
     {
-      name: "Dr. Vinayaka K. U.",
+      name: "Dr. Pramod TC",
       title: "Assistant Professor",
-      department: "Dept. of EEE",
+      department: "Dept. of CSE",
       location: "SIT, Tumkur",
-      phone: "+91 9538539591",
-      email: "icsses@sit.ac.in",
+      phone: "+91 76676 77891",
+      email: "pramodtc@sit.ac.in",
     },
     {
-      name: "Dr. Madhu B. M.",
-      title: "Assistant Professor",
-      department: "Dept. of EEE",
+      name: " Dr. N R Sunitha",
+      title: "Head Of Department",
+      department: "Dept. of CSE",
       location: "SIT, Tumkur",
-      phone: "+91 9986163831",
-      email: "madhubm@sit.ac.in",
+      phone: "+91 9986276851",
+      email: "nrsunitha@sit.ac.in",
     },
   ];
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { img } from 'framer-motion/client';
 
 const colorPalette = {
   primary: '#1A5F7A',
@@ -39,19 +40,19 @@ const patrons = [
     name: "Shri T. K. Nanjundappa",
     role: "Honorary Secretary",
     org: "Sree Siddaganga Education Society, Siddaganga Math, Tumakuru",
-    img: "http://icsses.sit.ac.in/assets/TKN-HA-cOsT5.jpg"
+    img: "/images/nanju.jpg"
   },
   {
     name: "Dr. Shivakumaraiah",
     role: "Joint Secretary",
     org: "Sree Siddaganga Education Society, Siddaganga Math, Tumakuru",
-    img: ""
+    img: "/images/shivkumar.jpeg"
   },
-  {
+    {
     name: "Dr. M. N. Channabasappa",
     role: "Director",
     org: "SIT, Tumakuru",
-    img: "http://icsses.sit.ac.in/assets/director-CFf4RI2p.gif"
+    img: "/images/chanu.gif"
   }
 ];
 
@@ -184,7 +185,7 @@ const Committees = () => {
           >
             <img
               className="w-64 h-64 rounded-full shadow-2xl mb-8 border-8 border-white"
-              src="http://icsses.sit.ac.in/assets/founder-UXCW3-qS.jpg"
+              src="/images/swamiji.jpg"
               alt="Founder President"
             />
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ color: colorPalette.primary }}>
@@ -209,7 +210,7 @@ const Committees = () => {
           >
             <img
               className="w-64 h-64 rounded-full shadow-2xl mb-8 border-8 border-white"
-              src="http://icsses.sit.ac.in/assets/president-JoDq5g5R.jpg"
+              src="/images/swamiji2.0.jpg"
               alt="Chief Patron"
             />
             <p className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ color: colorPalette.primary }}>
@@ -258,22 +259,67 @@ const Committees = () => {
             General Chair
           </h2>
           <motion.div 
-            className="flex flex-col items-center bg-white rounded-2xl shadow-xl p-8 transform transition duration-500 hover:scale-105"
-            whileHover={hoverEffect}
-            style={{ background: colorPalette.lightBackground }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={staggerChildren}
+            initial="initial"
+            animate="animate"
           >
-            <img
-              className="w-64 h-64 rounded-full shadow-2xl mb-8 border-8 border-white"
-              src="http://icsses.sit.ac.in/assets/principal-C3XPtYeR.jpg"
-              alt="Dr. S. V. Dinesh"
-            />
-            <p className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ color: colorPalette.primary }}>
-              Dr. S. V. Dinesh
-            </p>
-            <p className="text-xl font-semibold text-center mb-2" style={{ color: colorPalette.secondary }}>Principal</p>
-            <p className="text-lg text-center" style={{ color: colorPalette.accent2 }}>
-              SIT, Tumakuru
-            </p>
+            <motion.div 
+              className="flex flex-col items-center bg-white rounded-2xl shadow-xl p-8 transform transition duration-500 hover:scale-105"
+              whileHover={hoverEffect}
+              style={{ background: colorPalette.lightBackground }}
+            >
+              <img
+                className="w-64 h-64 rounded-full shadow-2xl mb-8 border-8 border-white"
+                src="/images/DrSajjan.jpg"
+                alt="Dr. Sajjan G Shiva"
+              />
+              <p className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ color: colorPalette.primary }}>
+                Dr. Sajjan G Shiva
+              </p>
+              <p className="text-xl font-semibold text-center mb-2" style={{ color: colorPalette.secondary }}>General Chair</p>
+              <p className="text-lg text-center" style={{ color: colorPalette.accent2 }}>
+                Professor
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="flex flex-col items-center bg-white rounded-2xl shadow-xl p-8 transform transition duration-500 hover:scale-105"
+              whileHover={hoverEffect}
+              style={{ background: colorPalette.lightBackground }}
+            >
+              <img
+                className="w-64 h-64 rounded-full shadow-2xl mb-8 border-8 border-white"
+                src="/images/dinesh.jpg"
+                alt="Dr. S. V. Dinesh"
+              />
+              <p className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ color: colorPalette.primary }}>
+                Dr. S. V. Dinesh
+              </p>
+              <p className="text-xl font-semibold text-center mb-2" style={{ color: colorPalette.secondary }}>Principal</p>
+              <p className="text-lg text-center" style={{ color: colorPalette.accent2 }}>
+                SIT, Tumakuru
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="flex flex-col items-center bg-white rounded-2xl shadow-xl p-8 transform transition duration-500 hover:scale-105"
+              whileHover={hoverEffect}
+              style={{ background: colorPalette.lightBackground }}
+            >
+              <img
+                className="w-64 h-64 rounded-full shadow-2xl mb-8 border-8 border-white"
+                src="/images/ssiyengar.jpeg"
+                alt="Dr. S. S. Iyengar"
+              />
+              <p className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ color: colorPalette.primary }}>
+                Dr. S. S. Iyengar
+              </p>
+              <p className="text-xl font-semibold text-center mb-2" style={{ color: colorPalette.secondary }}>General Chair</p>
+              <p className="text-lg text-center" style={{ color: colorPalette.accent2 }}>
+                Professor
+              </p>
+            </motion.div>
           </motion.div>
         </motion.section>
 
@@ -315,7 +361,89 @@ const Committees = () => {
           </motion.ul>
         </motion.section>
 
-        {/* Advisory Committee Section */}
+        {/* IEEE EXECOM Members */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center mt-16 mb-8" style={{ color: colorPalette.primary }}>
+          IEEE EXECOM Members
+        </h2>
+        <motion.div 
+          className="bg-white rounded-2xl shadow-xl p-8 mb-12"
+          style={{ background: colorPalette.lightBackground }}
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              "Dr. P Deepa Shenoy",
+              "Dr. Parameshachari B D",
+              "Dr. Ashwini Appaji"
+            ].map((name, index) => (
+              <div key={index} className="text-center p-4 bg-white rounded-lg shadow-md">
+                <p className="text-xl font-bold" style={{ color: colorPalette.primary }}>{name}</p>
+                <p className="text-lg" style={{ color: colorPalette.secondary }}>IEEE EXECOM Member</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Technical Program Chairs */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8" style={{ color: colorPalette.primary }}>
+          Technical Program Chairs
+        </h2>
+        <motion.div 
+          className="bg-white rounded-2xl shadow-xl p-8 mb-12"
+          style={{ background: colorPalette.lightBackground }}
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              "Dr. P Deepa Shenoy",
+              "Dr. N R Sunitha",
+              "Dr. R Aparna",
+              "Dr. B G Premasudha"
+            ].map((name, index) => (
+              <div key={index} className="text-center p-4 bg-white rounded-lg shadow-md">
+                <p className="text-xl font-bold" style={{ color: colorPalette.primary }}>{name}</p>
+                <p className="text-lg" style={{ color: colorPalette.secondary }}>Technical Program Chair</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Publication Chairs */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8" style={{ color: colorPalette.primary }}>
+          Publication Chairs
+        </h2>
+        <motion.div 
+          className="bg-white rounded-2xl shadow-xl p-8 mb-16"
+          style={{ background: colorPalette.lightBackground }}
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              "Dr. Parameshachari B",
+              "Dr. Ashwini Appaji",
+              "Dr. R Sumathi",
+              "Dr. A S Poornima",
+              "Dr. H S Jayanna",
+              "Dr. Asha Gowda Karegowda",
+              "Dr. K N Shreenath",
+              "Dr. M B Nirmala",
+              "Dr. H Kavitha"
+            ].map((name, index) => (
+              <div key={index} className="text-center p-4 bg-white rounded-lg shadow-md">
+                <p className="text-xl font-bold" style={{ color: colorPalette.primary }}>{name}</p>
+                <p className="text-lg" style={{ color: colorPalette.secondary }}>Publication Chair</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Advisory Committee */}
         <motion.section 
           className="mb-24 bg-white rounded-2xl shadow-xl p-12"
           {...fadeInUp}
@@ -412,4 +540,3 @@ const Committees = () => {
 }
 
 export default Committees
-
